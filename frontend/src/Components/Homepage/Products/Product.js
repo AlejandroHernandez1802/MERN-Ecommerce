@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { ShoppingCartOutlined, SearchOutlined, FavoriteBorderOutlined } from "@material-ui/icons";
+import {mobile} from '../../../responsive';
 
 const Info = styled.div`
     opacity: 0;
@@ -14,6 +15,8 @@ const Info = styled.div`
     align-items: center;
     justify-content: center;
     transition: all 0.5s ease;
+
+    ${mobile({width:'80%'})}
 `;
 
 const Container = styled.div`
@@ -30,14 +33,8 @@ const Container = styled.div`
     &:hover ${Info}{
         opacity: 1;
     }
-`;
 
-const Circle = styled.div`
-    width: 200px;
-    height: 200px;
-    border-radius: 50%;
-    background-color: white;
-    position: absolute;
+    ${mobile({margin:'2px'})}
 `;
 
 const Image = styled.img`
@@ -45,6 +42,7 @@ const Image = styled.img`
     width: 100%;
     object-fit: cover;
     z-index: 2;
+    ${mobile({width:'80%'})}
 `;
 
 const Icon = styled.div`
@@ -71,7 +69,6 @@ const Icon = styled.div`
 const Product = ({item}) => {
     return(
         <Container>
-           <Circle />
            <Image src={item.img}/> 
            <Info>
                 <Icon>

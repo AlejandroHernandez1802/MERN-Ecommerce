@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { ArrowLeftOutlined, ArrowRightOutlined } from "@material-ui/icons";
 import { sliderItems } from "../../../data/sliderItems";
 import { useState } from "react";
+import {mobile} from '../../../responsive';
 
 /* Styled components */
 
@@ -13,6 +14,8 @@ const Container = styled.div`
 
     /* This will prevent that the page don't  allow the user to scroll the bar below */
     overflow: hidden;
+
+    ${mobile({display:'none'})}
 `
 
 const Arrow = styled.div`

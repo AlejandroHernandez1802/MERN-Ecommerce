@@ -8,12 +8,12 @@ import Cart from './Pages/CartPage/Cart';
 function App() {
   return (
     <div className="App">
-      {/* <Homepage /> */}
+      <Homepage />
       {/* <ProductList /> */}
       {/* <Product /> */}
       {/* <RegisterPage /> */}
       {/* <LoginPage />  */}
-      <Cart />
+      {/* <Cart /> */}
     </div>
   );
 }

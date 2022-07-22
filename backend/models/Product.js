@@ -17,7 +17,8 @@ const ProductSchema = new mongoose.Schema(
                     type:Number
                 }
             }
-        ]
+        ],
+        inStock:{type: Boolean, default:true}
     },
     { timestamps:true }
 );

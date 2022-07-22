@@ -81,7 +81,7 @@ router.get("/findAll", async (req, res) => {
             products = await Product.find();
         }
 
-        //If there's no errros, this message will be thrown
+        //If there's no error, this message will be thrown
         res.status(200).json(products);
     }
     catch(err){

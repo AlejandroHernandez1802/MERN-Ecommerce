@@ -5,6 +5,9 @@ import Products from '../../Components/Homepage/Products/Products';
 import Newsletter from '../../Components/Homepage/Newsletter/Newsletter';
 import Footer from '../../Components/Homepage/Footer/Footer';
 
+import {useLocation} from 'react-router-dom';
+import { useState } from "react";
+
 
 const Container = styled.div`
 
@@ -39,6 +42,29 @@ const Option = styled.option`
 `;
 
 const ProductList = () => {
+
+    //The location is used to get the category selected
+    const location = useLocation();
+    const category = location.pathname.split("/")[2];
+
+    //States to handle the filters
+    const [filter, setFilter] = useState({});
+    const [sort, setSort] = useState("newest");
+
+    //Function to handle filters
+    const handleFilter = (e) => {
+        const value = e.target.value;
+        setFilter({
+            ...filter,
+            [e.target.name]:value
+        })
+    }
+
+    //Function to handle the sort operation
+    const handleSort = (e) => {
+        setSort(e.target.value);
+    }
+
     return(
         <Container>
             <Navbar />
@@ -47,28 +73,26 @@ const ProductList = () => {
             <FilterContainer>
                 <Filter>
                     <FilterText>Filter Products: </FilterText>
-                    <Select>
-                        <Option disabled selected>Genre</Option>
-                        <Option>Sports</Option>
-                        <Option>Action/Adventure</Option>
-                        <Option>Sci-fi</Option>
-                    </Select>
-                    <Select>
-                        <Option disabled selected>Sells</Option>
-                        <Option>Best sellers</Option>
-                        <Option>On sale</Option>
-                        <Option>New games</Option>
+                    <Select name="platforms" onChange={handleFilter}>
+                        <Option disabled>Platform</Option>
+                        <Option>PS4</Option>
+                        <Option>PS5</Option>
+                        <Option>XBOX Series</Option>
+                        <Option>XBOX ONE</Option>
+                        <Option>Nintendo Switch</Option>
+                        <Option>PC</Option>
                     </Select>
                 </Filter>
                 <Filter>
                     <FilterText>Sort Products: </FilterText>
-                    <Select>
-                        <Option selected>Price (asc)</Option>
-                        <Option>Price (desc)</Option>
+                    <Select onChange={handleSort}>
+                        <Option value="newest">Newest</Option>
+                        <Option value="asc">Price (asc)</Option>
+                        <Option value="desc">Price (desc)</Option>
                     </Select>
                 </Filter>
             </FilterContainer>
-            <Products />
+            <Products cat={category} filter={filter} sort={sort}/>
             <Newsletter />
             <Footer />
         </Container>

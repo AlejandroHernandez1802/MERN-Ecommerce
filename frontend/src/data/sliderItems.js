@@ -27,17 +27,17 @@ export const categories= [
     {
         id:1,
         img:"https://wallpaperaccess.com/full/3482757.jpg",
-        title:"SHOOTERS"
+        title:"Shooter"
     },
     {
         id:2,
         img:"https://media.wired.com/photos/627b09860973df5979fdbdfa/master/w_2560%2Cc_limit/EA-FIFA-Split-Culture.jpg",
-        title:"SPORTS"
+        title:"Sports"
     },
     {
         id:3,
         img:"https://api.time.com/wp-content/uploads/2022/05/GettyImages-1318798899.jpg?quality=85&w=2121",
-        title:"PUZZLES"
+        title:"Puzzles"
     }
 ];
 
